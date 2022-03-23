@@ -8,11 +8,11 @@ function Header() {
                 <img className="header-left_svg" src={goalSvg}></img>
                 <a className="header-left_text" href="/">Goals App</a>
             </div>
-            <nav>
+            <div className="header-right">
                 <a className="header-right_login" href="/">
                     <img className="header-left_loging-svg" src={userSvg}></img>
                 </a>
-            </nav>
+            </div>
         </div>
     );
 }
