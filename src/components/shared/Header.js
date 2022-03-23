@@ -3,7 +3,7 @@ import userSvg from '../../assets/user.svg'
 
 function Header() {
     return(
-        <div className="Header">
+        <div className="Header box-shadow">
             <div className="header-left">
                 <img className="header-left_svg" src={goalSvg}></img>
                 <a className="header-left_text" href="/">Goals App</a>
