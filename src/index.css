@@ -36,6 +36,10 @@ a {
     align-items: center;
 }
 
+.header-right {
+    padding-top: 4px;
+}
+
 .header-left_text {
     margin-left: 15px;
     font-size: 35px;
