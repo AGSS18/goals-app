@@ -1,6 +1,10 @@
 :root {
     --PrimaryColor: #515BE0;
     --SecondaryColor: #66DDE2;
+    --HeaderHeight: 48px;
+    --FooterHeight: 25px;
+    --DarkGrey: #727272;
+    --HoverLightGrey: #ebebeb;
 }
 
 body {
@@ -14,7 +18,7 @@ a {
 /* HELPERS */
 
 .box-shadow {
-    box-shadow: 0px 0px 11px 1px rgba(0,0,0,0.38);
+    box-shadow: 0px 0px 4px #333;
 }
 
 /* HEADER COMPONENT */
@@ -23,21 +27,22 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 25px;
-    height: 48px;
+    height: var(--HeaderHeight);
+    position: relative;
 }
 
 .header-left, .header-right {
     height: 100%;
+    padding: 0 25px;
 }
 
-.header-left {
+.header-right:hover {
+    background-color: var(--HoverLightGrey);
+}
+
+.header-left, .header-right_login {
     display: flex;
     align-items: center;
-}
-
-.header-right {
-    padding-top: 8px;
 }
 
 .header-left_text {
@@ -47,20 +52,78 @@ a {
     color: var(--PrimaryColor);
 }
 
-.header-left_svg, .header-left_loging-svg {
+.header-right_login {
+    height: var(--HeaderHeight);
+}
+
+.header-left_svg, .header-right_login-svg {
     display: block;
     margin: 0 auto;
-    height: 80%;
+    height: 70%;
+}
+
+.header-right_login-svg {
+    transition: transform 200ms ease-in-out;
 }
 
 /* MAIN COMPONENT */
 
+.Main {
+    display: flex;
+    height: calc(100vh - (var(--HeaderHeight) + var(--FooterHeight)));
+}
+
+.aside {
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 0 5px -6px #333;
+    background-color: #f7f7f7;
+}
+
+.aside-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--DarkGrey);
+    font-weight: 700;
+    font-size: 18px;
+    height: 60px;
+}
+
+ .aside-active, .aside-links:hover {
+     background-color: var(--HoverLightGrey);
+}
+
+.aside-svg {
+    display: block;
+    height: 25px;
+}
+
+.aside-links_title {
+    margin-left: 15px;;
+}
+
+.main-content {
+    height: 100%;
+    width: 80%;
+    overflow: auto;
+    background-color: rgb(255, 255, 255);
+}
+
 /* FOOTER COMPONENT */
+
 .Footer {
-    height: 16px;
+    height: var(--FooterHeight);
     text-align: right;
-    font-size: 12px;
+    font-size: 14px;
     padding-right: 25px;
+    position: relative;
+}
+
+.footer-coder {
+    line-height: var(--FooterHeight);
 }
 
 .Footer, .Footer a {
