@@ -1,4 +1,4 @@
-import Goal from "./components/goalsList/Goal";
+import GoalsList from "./components/goalsList/GoalsList";
 import Footer from "./components/shared/Footer";
 import Header from "./components/shared/Header";
 import Main from "./components/shared/Main";
@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <Header />
       <Main>
-        <Goal />
+        <GoalsList />
       </ Main>
       <Footer />
     </div>

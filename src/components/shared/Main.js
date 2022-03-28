@@ -7,12 +7,12 @@ function Main({children}) {
         <div className="Main">
             <aside className="aside">
                 <NavLink href="/lista" title="Goals List">
-                    <div className="aside-svg-container">
+                    <div className="aside-svg-container flex-hw-align">
                         <img className="aside-svg" src={listSvg} />
                     </div>
                 </NavLink>
                 <NavLink  href="/crear" title="New Goal">
-                    <div className="aside-svg-container">
+                    <div className="aside-svg-container flex-hw-align">
                         <img className="aside-svg" src={addSvg} />
                     </div>
                 </NavLink>

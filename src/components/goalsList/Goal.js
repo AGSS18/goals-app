@@ -1,21 +1,23 @@
-function Goal() {
+function Goal({details, period, events, icon, goal, completed}) {
+
     return(
-        <div>
-            <div>
-                <div>Icon</div>
-                <div>
-                    <p>1<sub>/ weeks</sub></p>
-                    <p>details</p>
-                </div>
+        <div className="Goal card">
+            <div className="goal-left">
+                <div className="goal-icon flex-hw-align">{icon}</div>
+                <p className="goal-frequency">
+                    {events}
+                    <sub>/ {period}</sub>
+                </p>
+                <p className="goal-details">{details}</p>
             </div>
-            <div>
-                <div>
-                    <p>4 de 5</p>
-                    <div>
-                        <div></div>
+            <div className="goal-right">
+                <div className="goal-right-statusContent">
+                    <p className="goal-status">{completed} of {goal}</p>
+                    <div className="goal-StatusBar1">
+                        <div className="goal-StatusBar2" style={{width: `${Math.round((completed / goal) * 100)}%`}}></div>
                     </div>
                 </div>
-                <button>Completed</button>
+                <button className="goal-button">Completed</button>
             </div>
         </div>
     );
