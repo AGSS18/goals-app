@@ -9,10 +9,10 @@
     --FooterHeight: 25px;
     --DarkGrey: #727272;
     --HoverLightGrey: #ebebeb;
-    --BoxShadow:    12px 12px 16px 0 rgba(0, 0, 0, 0.25),
-                    -8px -8px 12px -10px rgba(255, 255, 255, 0.3);
-    --InBoxShadox:  inset 5px 5px 10px #242529,
-                    inset -5px -5px 10px #2a2b2f;
+    --BoxShadow:    12px 12px 16px 0 #00000040,
+                    -8px -8px 12px -10px #ffffff4d;
+    --InBoxShadox:  inset 5px 5px 10px #222326,
+                    inset -5px -5px 10px #2c2d32;
 }
 
 body {
@@ -105,10 +105,9 @@ a {
 
 .aside {
     height: 100%;
-    width: 260px;
+    width: 80px;
     display: flex;
     flex-direction: column;
-    box-shadow: 5px 0 5px -6px #525252;
     background-color: var(--SecondaryBackgroundColor);
     z-index: 1;
 }
@@ -122,7 +121,8 @@ a {
 }
 
  .aside-active, .aside-links:hover {
-     background-color: var(--TertiaryBackgroundColor);
+     background-color: var(--PrimaryBackgroundColor);
+     box-shadow: var(--InBoxShadow);
 }
 
 .aside-svg-container {
@@ -131,16 +131,17 @@ a {
     border-radius: 50%;
     background-color: var(--SecondaryBackgroundColor);
     box-shadow:  5px 5px 10px #1b1c1e,
-             -5px -5px 10px #33343a;
+    -5px -5px 10px #33343a;
+}
+
+.aside-links:hover .aside-svg-container {
+    box-shadow: none;
+    background-color: transparent;
 }
 
 .aside-svg {
     display: block;
     height: 20px;
-}
-
-.aside-links_title {
-    margin-left: 10px;;
 }
 
 .main-content {
