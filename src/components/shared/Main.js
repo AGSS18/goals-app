@@ -19,7 +19,6 @@ function Main({children}) {
             </aside>
             <main className="main-content">
                 {children}
-                Hola
             </main>
         </div>
     );
