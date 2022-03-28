@@ -228,6 +228,12 @@ a {
     box-shadow:  var(--InBoxShadox)
 }
 
+/* MAIN FROM DETAILS */
+
+form label input, form label {
+    display: block;
+}
+
 /* FOOTER COMPONENT */
 
 .Footer {
