@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import goalSvg from '../../assets/achievement.svg'
 import userSvg from '../../assets/user.svg'
 
@@ -6,12 +7,12 @@ function Header() {
         <header className="Header box-shadow">
             <div className="header-left">
                 <img className="header-left_svg" src={goalSvg}></img>
-                <a className="header-left_text" href="/">Goals App</a>
+                <Link className="header-left_text" to="/">Goals App</Link>
             </div>
             <nav className="header-right">
-                <a className="header-right_login" href="/">
+                <Link className="header-right_login" to="/login">
                     <img className="header-right_login-svg" src={userSvg}></img>
-                </a>
+                </Link>
             </nav>
         </header>
     );

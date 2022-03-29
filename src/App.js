@@ -1,19 +1,20 @@
+import { Route, Routes } from "react-router";
+import Layout from "./components/shared/Layout";
 import GoalsList from "./components/goalsList/GoalsList";
 import NewGoalFormDetails from "./components/newGoal/NewGoalFormDetails";
-import Footer from "./components/shared/Footer";
-import Header from "./components/shared/Header";
-import Main from "./components/shared/Main";
+import NoMatch from "./components/shared/NoMatch";
+
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Main>
-        {/* <GoalsList /> */}
-        <NewGoalFormDetails />
-      </ Main>
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />} >
+        <Route index element={<GoalsList />} />
+        <Route path="/list" element={<GoalsList />} />
+        <Route path="/create" element={<NewGoalFormDetails />} />
+      </Route>
+      <Route path="*" element={<NoMatch />} />
+    </Routes>
   );
 }
 

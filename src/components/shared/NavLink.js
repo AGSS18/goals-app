@@ -1,8 +1,10 @@
-function NavLink({children, title, href, isActive}) {
+import { Link } from "react-router-dom";
+
+function NavLink({children, href, isActive}) {
     return(
-        <a className={`aside-links flex-hw-align ${isActive && 'aside-active'}`} href={href}>
+        <Link className={`aside-links flex-hw-align ${isActive && 'aside-active'}`} to={href}>
             {children}
-        </a>
+        </Link>
     );
 }
 

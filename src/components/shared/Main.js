@@ -6,12 +6,12 @@ function Main({children}) {
     return(
         <div className="Main">
             <aside className="aside">
-                <NavLink href="/lista" title="">
+                <NavLink href="/list" title="">
                     <div className="aside-svg-container flex-hw-align">
                         <img className="aside-svg" src={listSvg} />
                     </div>
                 </NavLink>
-                <NavLink  href="/crear" title="">
+                <NavLink  href="/create" title="">
                     <div className="aside-svg-container flex-hw-align">
                         <img className="aside-svg" src={addSvg} />
                     </div>
