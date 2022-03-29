@@ -1,23 +1,39 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router";
+import { Context } from "../../services/Memory";
 
 function NewGoalFormDetails() {
     const [form, setForm] = useState(
         {
-            details: "what",
-            period: "day",
-            events: 1,
-            icon: "🏋",
-            goal: 365,
-            within: "2022-12-31",
-            completed: 50
+            details: "",
+            period: "",
+            events: "",
+            icon: "",
+            goal: "",
+            within: "",
+            completed: ""
         }
     );
+
+    const [state, dispatch] = useContext(Context);
+
     
-    const frequency = ["day", "week", "month", "year"];
-    const icons = ["🏃", "📚", "🏋", "🤓", "🧹", "🛒", "✈️", "​💻​"];
+    const frequency = ["", "day", "week", "month", "year"];
+    const icons = ["", "🏃", "📚", "🏋", "🤓", "🧹", "🛒", "✈️", "​💻​"];
+    const navigate = useNavigate();
 
     function handleSubmit() {
-        console.log(form);
+        dispatch({type: 'add', goals: form});
+        setForm({
+            details: "",
+            period: "",
+            events: "",
+            icon: "",
+            goal: "",
+            within: "",
+            completed: ""
+        });
+        navigate("/list");
     }
 
     function handleChange({target}){
@@ -27,6 +43,7 @@ function NewGoalFormDetails() {
     useEffect(() => {
         // console.log(form);
     }, [form]);
+
 
     return (
         <div className="FormDetails card">
@@ -41,7 +58,7 @@ function NewGoalFormDetails() {
                         <input onChange={handleChange} value={form.events} name="events" type="number" />
                         <select onChange={handleChange} name="period" value={form.period} >
                             {frequency.map(option => 
-                                <option key={option} value={option}>{`Per ${option}`}</option>
+                                <option key={option} value={option}>{option}</option>
                             )}
                         </select>
                     </div>
