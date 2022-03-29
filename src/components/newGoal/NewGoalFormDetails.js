@@ -3,20 +3,22 @@ function NewGoalFormDetails() {
     const icons = ["🏃", "📚", "🏋", "🤓", "🧹", "🛒", "✈️", "​💻​"];
     
     return (
-        <div className="FormDetails">
+        <div className="FormDetails card">
             <form>
                 <label>
                     Goal description 
                     <input type="text" placeholder="e.g. Drink 4lts of water" />
                 </label>
                 <label>
-                    Frequency<span>e.g. 2 per week</span>
-                    <input type="number" />
-                    <select>
-                        {frequency.map(option => 
-                            <option value={option}>{`Per ${option}`}</option>
-                        )}
-                    </select>
+                    Frequency<span> (e.g. 2 per week)</span>
+                    <div className="frequency-inputs">
+                        <input type="number" />
+                        <select>
+                            {frequency.map(option => 
+                                <option value={option}>{`Per ${option}`}</option>
+                            )}
+                        </select>
+                    </div>
                 </label>
                 <label>
                      Final Goal
@@ -39,9 +41,9 @@ function NewGoalFormDetails() {
                     </select>
                 </label>
             </form>
-            <div>
-                <button>Add</button>
-                <button>Cancel</button>
+            <div className="form-details__btns" >
+                <button className="btn" >Add</button>
+                <button className="btn cancel-btn" >Cancel</button>
             </div>
         </div>
     );

@@ -35,6 +35,28 @@ a {
     box-shadow:  5px 5px 10px #121214;
     margin: 0 25px;
     margin-top: 15px;
+    overflow: hidden;
+}
+
+.btn {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    box-shadow:  3px 3px 1px #303134,
+                -3px -3px 10px #3e3f44;
+    background-color: var(--PrimaryColor);
+    color: white;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+
+.btn:hover {
+    background-color: var(--SecondaryBackgroundColor);
+    box-shadow:  var(--InBoxShadox);
+}
+
+.cancel-btn {
+    background-color: var(--SecondaryBackgroundColor);
 }
 
 .flex-hw-align {
@@ -211,27 +233,56 @@ a {
     border-radius: 25px;
 }
 
-.goal-button {
-    padding: 10px 15px;
-    border-radius: 8px;
-    border: none;
-    box-shadow:  3px 3px 1px #303134,
-                -3px -3px 10px #3e3f44;
-    background-color: var(--PrimaryColor);
-    color: white;
-    cursor: pointer;
-    transition: all 200ms ease-in-out;
-}
-            
-.goal-button:hover {
-    background-color: var(--SecondaryBackgroundColor);
-    box-shadow:  var(--InBoxShadox)
-}
-
 /* MAIN FROM DETAILS */
 
-form label input, form label {
+.FormDetails {
+    background-color: var(--TertiaryBackgroundColor);
+    padding: 10px 25px;
+}
+
+form label {
     display: block;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+input, select {
+    width: 100%;
+    border-radius: 4px;
+    color: var(--DarkGrey);
+    border: none;
+    padding: 8px 15px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    background-color: var(--SecondaryBackgroundColor);
+    box-shadow: var(--InBoxShadox);
+}
+
+input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+input:focus, select:focus {
+    outline: none;
+}
+
+.frequency-inputs {
+    display: flex;
+}
+
+.frequency-inputs input {
+    margin-right: 12px;
+}
+
+.form-details__btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.form-details__btns button {
+    width: 150px;
 }
 
 /* FOOTER COMPONENT */

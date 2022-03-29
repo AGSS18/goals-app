@@ -17,7 +17,7 @@ function Goal({details, period, events, icon, goal, completed}) {
                         <div className="goal-StatusBar2" style={{width: `${Math.round((completed / goal) * 100)}%`}}></div>
                     </div>
                 </div>
-                <button className="goal-button">Completed</button>
+                <button className="goal-button btn">Completed</button>
             </div>
         </div>
     );
