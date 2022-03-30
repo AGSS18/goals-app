@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "details": "Run for 50 minutes",
+        "period": "day",
+        "events": 1,
+        "icon": "🏃",
+        "goal": 365,
+        "within": "2022-12-31",
+        "completed": 50
+    },
+    {
+        "id": 2,
+        "details": "Run for 50 minutes",
+        "period": "day",
+        "events": 1,
+        "icon": "🏃",
+        "goal": 365,
+        "within": "2022-12-31",
+        "completed": 50
+    },
+    {
+        "id": 3,
+        "details": "Run for 50 minutes",
+        "period": "day",
+        "events": 1,
+        "icon": "🏃",
+        "goal": 365,
+        "within": "2022-12-31",
+        "completed": 50
+    }
+]

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { Context } from "../../services/Memory";
+import { goalDeleteRequest, goalRequest } from "../../services/Requests";
 
 function NewGoalFormDetails() {
 
@@ -24,8 +25,9 @@ function NewGoalFormDetails() {
     const icons = ["", "🏃", "📚", "🏋", "🤓", "🧹", "🛒", "✈️", "​💻​"];
     const navigate = useNavigate();
     
-    function handleSubmit() {
-        dispatch({type: 'add', goals: form});
+    async function handleAdd() {
+        const newGoal = await goalRequest('created');
+        dispatch({type: 'add', goals: newGoal});
         setForm({
             details: "",
             period: "",
@@ -38,13 +40,15 @@ function NewGoalFormDetails() {
         navigate("/list");
     }
 
-    function handleUpdate() {
-        dispatch({type: 'update', goals: form});
+    async function handleUpdate() {
+        const updatedGoal = await goalRequest('updated');
+        dispatch({type: 'update', goals: updatedGoal});
         navigate('/list');
     }
     
-    function handleDelete() {
-        dispatch({type: 'delete', id});
+    async function handleDelete() {
+        const deletedGoal = await goalDeleteRequest();
+        dispatch({type: 'delete', id: deletedGoal});
         navigate('/list');
     }
 
@@ -109,7 +113,7 @@ function NewGoalFormDetails() {
                     <button onClick={handleDelete} className="btn cancel-btn" >Delete</button>
                     </>
                 :
-                    <button onClick={handleSubmit} className="btn" >Add</button>
+                    <button onClick={handleAdd} className="btn" >Add</button>
                 }
                 <button onClick={handleClose} className="btn cancel-btn" >Cancel</button>
             </div>

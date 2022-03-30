@@ -4,9 +4,22 @@ import GoalsList from "./components/goalsList/GoalsList";
 import NewGoalFormDetails from "./components/newGoal/NewGoalFormDetails";
 import NoMatch from "./components/shared/NoMatch";
 import Modal from "./components/shared/Modal";
+import { useContext, useEffect } from "react";
+import { goalsRequest } from "./services/Requests";
+import { Context } from "./services/Memory";
 
 
 function App() {
+
+  const [, dispatch] = useContext(Context);
+
+  useEffect(() => {
+    (async function () {
+        const goals = await goalsRequest();
+        dispatch({type: 'initialize', goals: goals});
+    })();
+},[]);
+
   return (
     <Routes>
       <Route path="/" element={<Layout />} >

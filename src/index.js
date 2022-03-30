@@ -7,12 +7,10 @@ import { BrowserRouter } from 'react-router-dom';
 import Memory from './services/Memory';
 
 ReactDOM.render(
-    <React.StrictMode>
         <Memory>
             <BrowserRouter>
                 <App /> 
             </BrowserRouter>
-        </Memory>
-    </React.StrictMode>,
+        </Memory>,
     document.getElementById('root')
 );

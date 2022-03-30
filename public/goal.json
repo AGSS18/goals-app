@@ -1,0 +1,10 @@
+{
+    "id": 2,
+    "details": "Backend",
+    "period": "day",
+    "events": 1,
+    "icon": "🏃",
+    "goal": 365,
+    "within": "2022-12-31",
+    "completed": 50
+}
