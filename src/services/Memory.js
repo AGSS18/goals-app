@@ -1,53 +1,12 @@
 import { createContext, useReducer } from "react";
 
-const goals = [
-    {
-        id: 1,
-        details: "Run for 50 minutes",
-        period: "day",
-        events: 1,
-        icon: "🏃",
-        goal: 365,
-        within: "2022-12-31",
-        completed: 50
-    },
-    {
-        id: 2,
-        details: "Read 75 books",
-        period: "year",
-        events: 75,
-        icon: "📚",
-        goal: 75,
-        within: "2022-12-31",
-        completed: 12
-    },
-    {
-        id: 3,
-        details: "1hr of strenght exercise",
-        period: "day",
-        events: 1,
-        icon: "🏋",
-        goal: 365,
-        within: "2022-12-31",
-        completed: 50
-    },
-    {
-        id: 4,
-        details: "Logic exercises",
-        period: "day",
-        events: 3,
-        icon: "🤓",
-        goal: 345,
-        within: "2022-12-31",
-        completed: 33
-    },
-
-];
-
-const init = {
-    order: [],
-    objects: {}
-}
+const data = localStorage.getItem('goals')
+const init = data ?
+    JSON.parse(data)
+    :{
+        order: [],
+        objects: {}
+    };
 
 function reducer(state, action) {
     switch(action.type) {
@@ -57,6 +16,7 @@ function reducer(state, action) {
                 order: goals.map(goal => goal.id),
                 objects: goals.reduce((obj, goal) => ({...obj, [goal.id]: goal}), {})
             };
+            localStorage.setItem('goals', JSON.stringify(newState));
             return newState;
         }
 
@@ -66,9 +26,10 @@ function reducer(state, action) {
                 order: [...state.order, id],
                 objects: {
                     ...state.objects,
-                    [id]: action.goals
+                    [id]: { ...action.goals, id: id}
                 }
             };
+            localStorage.setItem('goals', JSON.stringify(newState));
             return newState;
         }
         
@@ -76,6 +37,7 @@ function reducer(state, action) {
             const id = action.goals.id;
             state.objects[id] = {...action.goals};
             const newState = { ...state };
+            localStorage.setItem('goals', JSON.stringify(newState));
             return newState;
         }
         
@@ -87,18 +49,17 @@ function reducer(state, action) {
                 order: newOrder,
                 objects: state.objects
              };
+            localStorage.setItem('goals', JSON.stringify(newState));
             return newState;
         }
     }
 }
 
-const initGoalsList = reducer(init, {type: 'initialize', goals: goals});
-
 export const Context = createContext(null);
 
 function Memory({children}) {
 
-    const [state, dispatch] = useReducer(reducer, initGoalsList);
+    const [state, dispatch] = useReducer(reducer, init);
 
     return ( 
         <Context.Provider value={[state, dispatch]}>
