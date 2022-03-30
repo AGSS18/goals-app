@@ -1,8 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { Context } from "../../services/Memory";
 
 function NewGoalFormDetails() {
+
+    const { id } = useParams();
+
     const [form, setForm] = useState(
         {
             details: "",
@@ -16,12 +19,11 @@ function NewGoalFormDetails() {
     );
 
     const [state, dispatch] = useContext(Context);
-
     
     const frequency = ["", "day", "week", "month", "year"];
     const icons = ["", "🏃", "📚", "🏋", "🤓", "🧹", "🛒", "✈️", "​💻​"];
     const navigate = useNavigate();
-
+    
     function handleSubmit() {
         dispatch({type: 'add', goals: form});
         setForm({
@@ -36,14 +38,30 @@ function NewGoalFormDetails() {
         navigate("/list");
     }
 
+    function handleUpdate() {
+        dispatch({type: 'update', goals: form});
+        navigate('/list');
+    }
+    
+    function handleDelete() {
+        dispatch({type: 'delete', id});
+        navigate('/list');
+    }
+
     function handleChange({target}){
-        setForm(prev => ({...prev, [target.name]: target.value}))
+        setForm(prev => ({...prev, [target.name]: target.value}));
+    }
+
+    function handleClose() {
+        navigate('/list');
     }
 
     useEffect(() => {
-        // console.log(form);
-    }, [form]);
-
+        const isGoal = state.objects[id];
+        if(!id) return navigate('/create');
+        if(!isGoal) return navigate('/list');
+        setForm(isGoal);
+    }, [id]);
 
     return (
         <div className="FormDetails card">
@@ -85,8 +103,15 @@ function NewGoalFormDetails() {
                 </label>
             </form>
             <div className="form-details__btns" >
-                <button onClick={handleSubmit} className="btn" >Add</button>
-                <button className="btn cancel-btn" >Cancel</button>
+                {id ?
+                    <> 
+                    <button onClick={handleUpdate} className="btn" >Update</button>
+                    <button onClick={handleDelete} className="btn cancel-btn" >Delete</button>
+                    </>
+                :
+                    <button onClick={handleSubmit} className="btn" >Add</button>
+                }
+                <button onClick={handleClose} className="btn cancel-btn" >Cancel</button>
             </div>
         </div>
     );

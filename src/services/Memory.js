@@ -69,7 +69,24 @@ function reducer(state, action) {
                     [id]: action.goals
                 }
             };
-            console.log(newState)
+            return newState;
+        }
+        
+        case 'update': {
+            const id = action.goals.id;
+            state.objects[id] = {...action.goals};
+            const newState = { ...state };
+            return newState;
+        }
+        
+        case 'delete': {
+            const id = action.id;
+            const newOrder = state.order.filter(item => item != id);
+            delete state.objects[id];
+            const newState = { 
+                order: newOrder,
+                objects: state.objects
+             };
             return newState;
         }
     }

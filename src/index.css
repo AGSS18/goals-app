@@ -180,6 +180,7 @@ a {
     background-color: var(--TertiaryBackgroundColor);
     border-radius: 8px;
     padding: 8px;
+    color: var(--SecondaryColor);
 }
 
 .goal-left, .goal-right {
@@ -250,7 +251,7 @@ form label {
 input, select {
     width: 100%;
     border-radius: 4px;
-    color: var(--DarkGrey);
+    color: rgb(206, 206, 206);
     border: none;
     padding: 8px 15px;
     margin-top: 5px;
@@ -283,6 +284,18 @@ input:focus, select:focus {
 
 .form-details__btns button {
     width: 150px;
+}
+
+/* MODAL */
+
+.Modal {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(255, 255, 255, .5);
+    z-index: 100;
 }
 
 /* FOOTER COMPONENT */

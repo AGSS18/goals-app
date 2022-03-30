@@ -1,7 +1,11 @@
-function Goal({details, period, events, icon, goal, completed}) {
+import { Link } from "react-router-dom";
+
+function Goal({id, details, period, events, icon, goal, completed}) {
+
+
 
     return(
-        <div className="Goal card">
+        <Link to={`/list/${id}`} className="Goal card">
             <div className="goal-left">
                 <div className="goal-icon flex-hw-align">{icon}</div>
                 <p className="goal-frequency">
@@ -19,7 +23,7 @@ function Goal({details, period, events, icon, goal, completed}) {
                 </div>
                 <button className="goal-button btn">Completed</button>
             </div>
-        </div>
+        </Link>
     );
 }
 

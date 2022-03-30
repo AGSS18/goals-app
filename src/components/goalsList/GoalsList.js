@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Outlet } from "react-router";
 import { Context } from "../../services/Memory";
 import Goal from "./Goal";
 
@@ -8,6 +9,7 @@ function GoalsList() {
     return (
         <> 
             {state.order.map(id => <Goal {...state.objects[id]} key={id}/>)}
+            <Outlet />
         </>
      );
 }
