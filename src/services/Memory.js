@@ -18,7 +18,7 @@ function reducer(state, action) {
             };
             localStorage.setItem('goals', JSON.stringify(newState));
             return newState;
-        }
+        };
 
         case 'add': {
             const id = Math.random(); //action.goals.id;
@@ -31,7 +31,7 @@ function reducer(state, action) {
             };
             localStorage.setItem('goals', JSON.stringify(newState));
             return newState;
-        }
+        };
         
         case 'update': {
             const id = action.goals.id;
@@ -39,7 +39,7 @@ function reducer(state, action) {
             const newState = { ...state };
             localStorage.setItem('goals', JSON.stringify(newState));
             return newState;
-        }
+        };
         
         case 'delete': {
             const id = action.id;
@@ -51,7 +51,10 @@ function reducer(state, action) {
              };
             localStorage.setItem('goals', JSON.stringify(newState));
             return newState;
-        }
+        };
+
+        default:
+            throw new Error();
     }
 }
 

@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 
 function Goal({id, details, period, events, icon, goal, completed}) {
-
-
-
     return(
         <Link to={`/list/${id}`} className="Goal card">
             <div className="goal-left">

@@ -4,7 +4,7 @@ import { Context } from "../../services/Memory";
 import Goal from "./Goal";
 
 function GoalsList() {
-    const [state, dispatch] = useContext(Context);
+    const [state] = useContext(Context);
 
     return (
         <> 

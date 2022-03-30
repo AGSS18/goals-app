@@ -7,10 +7,12 @@ import { BrowserRouter } from 'react-router-dom';
 import Memory from './services/Memory';
 
 ReactDOM.render(
-    <Memory>
-        <BrowserRouter>
-            <App /> 
-        </BrowserRouter>
-    </Memory>,
+    <React.StrictMode>
+        <Memory>
+            <BrowserRouter>
+                <App /> 
+            </BrowserRouter>
+        </Memory>
+    </React.StrictMode>,
     document.getElementById('root')
 );
