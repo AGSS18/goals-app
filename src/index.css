@@ -65,6 +65,10 @@ a {
     align-items: center;
 }
 
+.currentColor {
+    color: blue;
+}
+
 /* HEADER COMPONENT */
 
 .Header {
